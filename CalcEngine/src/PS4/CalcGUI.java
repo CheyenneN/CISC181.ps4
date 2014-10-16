@@ -2,6 +2,7 @@ package PS4;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
@@ -12,14 +13,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
+import PS4.CalcEngine;
 
 public class CalcGUI {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textInA;
+	private JTextField textYears;
+	private JTextField textAIR;
+	private JTextField textFVSum;
 
 	/**
 	 * Launch the application.
@@ -55,31 +57,38 @@ public class CalcGUI {
 		
 		JButton btnCalculate = new JButton("Calculate");
 		btnCalculate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				double Amount = Double.parseDouble(Amount.getText());
+                double Years = Double.parseDouble(Years.getText());
+                double InterestRate = Double.parseDouble(InterestRate.getText());
+
+                // Set future value text box equal
+                futureValue.setText(PS4.CalcEngine.Calculation(Amount, Years, InterestRate));
 			}
 		});
 		btnCalculate.setBounds(317, 213, 89, 23);
 		frame.getContentPane().add(btnCalculate);
 		
-		textField = new JTextField();
-		textField.setBounds(320, 21, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		textInA = new JTextField();
+		textInA.setBounds(320, 21, 86, 20);
+		frame.getContentPane().add(textInA);
+		textInA.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(320, 52, 86, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textYears = new JTextField();
+		textYears.setBounds(320, 52, 86, 20);
+		frame.getContentPane().add(textYears);
+		textYears.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(320, 83, 86, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		textAIR = new JTextField();
+		textAIR.setBounds(320, 83, 86, 20);
+		frame.getContentPane().add(textAIR);
+		textAIR.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(320, 114, 86, 20);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		textFVSum = new JTextField();
+		textFVSum.setBounds(320, 114, 86, 20);
+		frame.getContentPane().add(textFVSum);
+		textFVSum.setColumns(10);
 		
 		JLabel lblInvestmentAmount = new JLabel("Investment Amount");
 		lblInvestmentAmount.setBounds(10, 24, 112, 14);

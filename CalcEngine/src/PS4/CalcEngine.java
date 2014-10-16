@@ -1,44 +1,18 @@
 package PS4;
 
+import java.text.DecimalFormat;
+import java.lang.Math;
+
 public class CalcEngine {
-
-	private double interestRate = 0;
-	private double years = 0;
-	private double FutureValue = 0;
-	
-	public CalcEngine()
-	{
-	
-	}
-	
-	public CalcEngine(double InterestRate,double Years){
-		
-		interestRate = InterestRate;
-		years = Years;		
-	}
-	
-	public void setInterestRate (double InterestRate)
-    {
-		interestRate = InterestRate;
-    }
-
-    public double getInterestRate()
-    {
-        return interestRate;
-    }
-
-    public void setYears (double Years)
-    {
-        years = Years;
-    }
-
-    public double getyears()
-    {
-        return years;
-    }
     
-    public void futureValue()
+    public static String Calculation(double amount, double interestRate, double years)
     {
-    	FutureValue = (1 + (this.interestRate / 12))^(this.years * 12);
+    	double FutureValue = amount * Math.pow((1 + ((interestRate / 100)/12)), (years * 12));
+    	
+    	 DecimalFormat df = new DecimalFormat("#.##");
+         String futureValue = df.format(FutureValue);
+         
+         return futureValue;
+    
     }
 }
