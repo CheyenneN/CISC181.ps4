@@ -59,12 +59,12 @@ public class CalcGUI {
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				double Amount = Double.parseDouble(Amount.getText());
-                double Years = Double.parseDouble(Years.getText());
-                double InterestRate = Double.parseDouble(InterestRate.getText());
+				double Amount = Double.parseDouble(textInA.getText());
+                double Years = Double.parseDouble(textYears.getText());
+                double InterestRate = Double.parseDouble(textAIR.getText());
 
                 // Set future value text box equal
-                futureValue.setText(PS4.CalcEngine.Calculation(Amount, Years, InterestRate));
+                textFVSum.setText(PS4.CalcEngine.Calculation(Amount, Years, InterestRate));
 			}
 		});
 		btnCalculate.setBounds(317, 213, 89, 23);
@@ -99,7 +99,7 @@ public class CalcGUI {
 		frame.getContentPane().add(lblYears);
 		
 		JLabel lblAnnualInterestRate = new JLabel("Annual Interest Rate");
-		lblAnnualInterestRate.setBounds(10, 86, 112, 14);
+		lblAnnualInterestRate.setBounds(10, 86, 133, 14);
 		frame.getContentPane().add(lblAnnualInterestRate);
 		
 		JLabel lblFutureValue = new JLabel("Future Value");
